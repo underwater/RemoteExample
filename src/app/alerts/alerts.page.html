@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-icon name="home" slot="start" size="large"></ion-icon>
+    <ion-title>
+      Alerts
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <!-- popup -->
+  <ion-button (click)="DoWorkCallBack()" color="warning" size='small'>Callback</ion-button>
+  <ion-button (click)="DoWorkAsyncAwait()" color="tertiary" size='small'>Async</ion-button>
+
+  <!-- toast -->
+  <ion-button (click)="ShowToast()" color="dark" size='small'>Toast</ion-button>
+
+  <!-- alert -->
+  <ion-button (click)="ShowAlert()" color="danger" size='small'>Alert</ion-button>
+</ion-content>
