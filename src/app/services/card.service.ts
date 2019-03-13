@@ -1,13 +1,31 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
+import * as firebase from 'firebase';
+import { Card } from '../models/card';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-  fakeCardList = ['What is a Class?', 'What is a Type?', 'What is SOLID?'];
   constructor() {}
 
-  getCards() {
-    return this.fakeCardList;
+  getFakeCards(): Array<Card> {
+    const res = new Array<Card>();
+    res.push(new Card('what is your name', 'Fares'));
+    return res;
+  }
+
+  getAllCards() {
+    firebase
+      .firestore()
+      .collection('cards')
+      .get()
+      .then(queryDocumentSnaptshot => {
+        console.log(queryDocumentSnaptshot);
+        return queryDocumentSnaptshot.docs;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }

@@ -8,10 +8,10 @@
 
   <ion-card *ngFor="let card of cards">
     <ion-card-header>
-      <ion-card-title>{{card}}</ion-card-title>
+      <ion-card-title>{{card.question}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Awesome content
+        {{card.answer}}
     </ion-card-content>
   </ion-card>
 </ion-content>
