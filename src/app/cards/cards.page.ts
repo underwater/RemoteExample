@@ -13,5 +13,6 @@ export class CardsPage implements OnInit {
 
   ngOnInit() {
     this.cards = this.cardService.getFakeCards();
+    this.cards = this.cardService.getRealCards();
   }
 }

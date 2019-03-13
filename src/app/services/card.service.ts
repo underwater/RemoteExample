@@ -15,17 +15,22 @@ export class CardService {
     return res;
   }
 
-  getAllCards() {
+  getRealCards(): Array<Card> {
+    let result = new Array<Card>();
     firebase
       .firestore()
       .collection('cards')
       .get()
       .then(queryDocumentSnaptshot => {
         console.log(queryDocumentSnaptshot);
-        return queryDocumentSnaptshot.docs;
+        // how to return the results as array ?
+        result = queryDocumentSnaptshot.docs.map(
+          r => new Card(r.data().question, r.data().answer)
+        );
       })
       .catch(err => {
         console.log(err);
       });
+    return result;
   }
 }
