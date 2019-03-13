@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'alerts', loadChildren: './alerts/alerts.module#AlertsPageModule' },
   { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'firestore', loadChildren: './firestore/firestore.module#FirestorePageModule' },
 ];
 
 @NgModule({
