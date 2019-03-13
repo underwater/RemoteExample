@@ -11,7 +11,18 @@ export class CardService {
 
   getFakeCards(): Array<Card> {
     const res = new Array<Card>();
-    res.push(new Card('what is your name', 'Fares'));
+    res.push(
+      new Card(
+        'What is: an angular DIRECTIVE',
+        'Angular directives are used to extend the power of the HTML by giving it new syntax'
+      )
+    );
+    res.push(
+      new Card(
+        'What is: an angular PIPE',
+        'Pipes are a useful feature in Angular. They are a simple way to transform values in an Angular template.'
+      )
+    );
     return res;
   }
 
@@ -22,7 +33,6 @@ export class CardService {
       .collection('cards')
       .get()
       .then(queryDocumentSnaptshot => {
-        console.log(queryDocumentSnaptshot);
         // how to return the results as array ?
         result = queryDocumentSnaptshot.docs.map(
           r => new Card(r.data().question, r.data().answer)
