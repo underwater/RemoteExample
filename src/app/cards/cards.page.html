@@ -6,9 +6,9 @@
 
 <ion-content padding>
 
-  <ion-card>
+  <ion-card *ngFor="let card of cards">
     <ion-card-header>
-      <ion-card-title>Awesome Title</ion-card-title>
+      <ion-card-title>{{card}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       Awesome content
