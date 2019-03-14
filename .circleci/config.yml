@@ -39,10 +39,14 @@ jobs:
       - run: yarn ng test --no-watch
 
       - run:
-          command: docker build -t sicotin23.azurecr.io/hello:1.0 .
+          command:| 
+          docker build -t sicotin23.azurecr.io/hello:1.0 .
       
       - run:
-        command: docker login --username @DOCKER_USER --password $DOCKER_PASS sicotin23.azurecr.io
-
+          command:| 
+          docker login --username @DOCKER_USER --password $DOCKER_PASS sicotin23.azurecr.io
+          
       - run:
-          command:  docker push sicotin23.azurecr.io/hello:1.0
+          command:|
+          docker push sicotin23.azurecr.io/hello:1.0
+
